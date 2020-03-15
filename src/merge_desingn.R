@@ -41,9 +41,11 @@ GKD <- merge(diff_name,homo_symbols,by="ensembl_gene_id")
 head(GKD)
 GKD = GKD[order(GKD$pvalue),]
 head(GKD)
+
+CXCL8 <- GKD[GKD$external_gene_name == "CXCL8",]
+head(CXCL8)
 write.csv(GKD,file = 'GKD.csv')
 #现在对新表以及基因注释表进行合并，得到并保存文件GKD，作为最终的差异基因表
-
 
 
 
