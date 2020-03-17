@@ -35,6 +35,7 @@ dim(diff_name)
 head(diff_name)
 diff_name <- diff_name[,-1]
 head(diff_name)
+write.csv(diff_name,file = 'diff_name.csv')
 #现在解决了两个表数据行不对等的问题，得到新表diff_name，已经完成了ID转换
 
 GKD <- merge(diff_name,homo_symbols,by="ensembl_gene_id")
@@ -45,7 +46,7 @@ head(GKD)
 CXCL8 <- GKD[GKD$external_gene_name == "CXCL8",]
 head(CXCL8)
 write.csv(GKD,file = 'GKD.csv')
-#现在对新表以及基因注释表进行合并，得到并保存文件GKD，作为最终的差异基因表
+#以上，对新表以及基因注释表进行合并，得到并保存文件GKD，作为最终的差异基因表
 
 
 

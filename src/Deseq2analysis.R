@@ -56,7 +56,8 @@ library(biomaRt)
 library(curl)
 mart <- useDataset("hsapiens_gene_ensembl", useMart("ensembl"))
 options(timeout = 4000000)
-homo_symbols<- getBM(attributes=c('ensembl_gene_id','external_gene_name',"description"),filters = 'ensembl_gene_id', values = my_ensembl_gene_id, mart = mart)
+homo_symbols<- getBM(attributes=c('ensembl_gene_id','external_gene_name',"description"),
+                     filters = 'ensembl_gene_id', values = my_ensembl_gene_id, mart = mart)
 head(homo_symbols)
 write.csv(homo_symbols,file="homo_symbols.csv")
 
