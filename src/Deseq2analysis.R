@@ -64,7 +64,7 @@ write.csv(homo_symbols,file="homo_symbols.csv")
 #目前得到了了两张表，一张是根据原始数据的Refseq_ID作的差异分析，一张是对得到的差异
 #分析结果，将Refseq_ID先转换为ensemble_ID,再利用biomaRt进行了注释，现在问题是，在Refseq_ID换
 #到ensemble_ID时，删除了十一行信息，这些行要么找不到对应的ensemble_ID,要么存在多个RefseqID对
-#应同一个ensemble_ID的现象。所以下一步如何合并这两个表
+#应同一个ensemble_ID的现象。所以下一步如何合并呢
 
 
 
