@@ -1,8 +1,6 @@
+rm(list = ls())
 
-BiocManager::install("Biostrings")
-BiocManager::install("pathview")
-BiocManager::install("gage")
-BiocManager::install("gageData")
+
 library("pathview")
 library("gage")
 library("gageData")
@@ -24,7 +22,7 @@ gene <- sig.gene[,2]
 head(gene)
 gene.df<-bitr(gene, fromType = "ENSEMBL", 
                     toType = c("SYMBOL","ENTREZID"),
-                    OrgDb = org.hs.eg.db)
+                    OrgDb = org.Hs.eg.db)
 head(gene.df)
 
 gkd <- read.csv(file = "GKD.csv")

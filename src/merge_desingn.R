@@ -16,6 +16,7 @@ head(diff_gene_deseq2_design)
 colnames(diff_gene_deseq2_design)[1]<-c("RefSeq_ID")
 head(diff_gene_deseq2_design)
 diff_name <- merge(ID_tran,diff_gene_deseq2_design,by="RefSeq_ID")
+head(diff_name)
 table(diff_name$padj<0.05)
 diff_name = diff_name[order(diff_name$pvalue),]
 head(diff_name)
@@ -42,11 +43,16 @@ GKD <- merge(diff_name,homo_symbols,by="ensembl_gene_id")
 head(GKD)
 GKD = GKD[order(GKD$pvalue),]
 head(GKD)
+write.csv(GKD,file = 'GKD.csv')
+GKD <- read.csv("GKD.csv")
+head(GKD)
+GKD <- GKD[,-1]
+head(GKD)
+write.csv(GKD,file = 'GKD.csv')
+#以上，对新表以及基因注释表进行合并，得到并保存文件GKD，作为差异基因表,下面随便抽出一个基因查看
 
 CXCL8 <- GKD[GKD$external_gene_name == "CXCL8",]
 head(CXCL8)
-write.csv(GKD,file = 'GKD.csv')
-#以上，对新表以及基因注释表进行合并，得到并保存文件GKD，作为最终的差异基因表
 
 
 
